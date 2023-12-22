@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <style>
+    body {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .registration-container {
+      background-color: #555;
+      border-radius: 10px;
+      padding: 20px;
+      width: 400px;
+      text-align: center;
+    }
+
+    .registration-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .registration-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .registration-container button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .registration-container button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+<div class="registration-container">
+  <h2>Registration</h2>
+  <form th:action="@{/registration}" th:object="${user}" method="post">
+    <div>
+      <input type="text" th:field="*{name}" placeholder="Name" required>
+    </div>
+    <div>
+      <input type="text" th:field="*{login}" placeholder="Login" required>
+    </div>
+    <div>
+      <input type="password" th:field="*{password}" placeholder="Password" required>
+    </div>
+    <div>
+      <input type="email" th:field="*{email}" placeholder="Email" required>
+    </div>
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
